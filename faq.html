@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bus Ticket Booking - FAQ</title>
+  <style>
+    body {
+     
+  background-image: url('bus2.jpg');
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-attachment: fixed;       
+  background-size: cover;             
+      font-family: Arial, sans-serif;
+      margin: 3rem;
+    }
+
+    h2 {
+      text-align: center;
+      color:black ;
+    }
+
+    .faq-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    details {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 5px black
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+    }
+
+    summary::marker {
+      font-size: 1.2rem;
+    }
+
+    details[open] summary::after {
+      content: "-";
+      position: absolute;
+      right: 0;
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-container">
+    <details>
+      <summary>How do I book a bus ticket?</summary>
+      <p>Visit the booking page, select your route and date, choose a seat, and proceed with payment.</p>
+    </details>
+
+    <details>
+      <summary>Can I cancel or modify my booking?</summary>
+      <p>Yes, cancellations and modifications are allowed up to 24 hours before departure. Fees may apply.</p>
+    </details>
+
+    <details>
+      <summary>What payment options are available?</summary>
+      <p>We accept debit/credit cards, UPI, net banking, and mobile wallets like Paytm and PhonePe.</p>
+    </details>
+
+    <details>
+      <summary>Will I get a physical ticket?</summary>
+      <p>No, a digital ticket will be sent via email and SMS after successful booking.</p>
+    </details>
+  </div>
+</body>
+</html>

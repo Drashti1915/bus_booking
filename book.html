@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Ticket</title>
+  <style>
+    body {
+  background-image: url('bus2.jpg');
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-attachment: fixed;       
+  background-size: cover;
+      font-family: Arial;
+      text-align: center;
+    }
+
+    h2 {
+      color: black;
+    }
+
+    input, select {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+    }
+
+    input[type="submit"] {
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 270px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2>Book Your Ticket</h2>
+  <footer><h5 style="text-align:right;">
+    <a href="home.html">Home</a></h5>
+  </footer>
+
+  <form>
+    <input type="text" placeholder="Bus Name" required><br>
+    <input type="text" placeholder="Your Name" required><br>
+    <input type="number" placeholder="Seat Number" required><br>
+    <input type="date" required><br>
+    <input type="submit" value="Book Ticket"><br>
+    <a href="payment.html">Make Payment</a>
+  </form>
+
+</body>
+</html>

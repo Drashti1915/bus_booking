@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    body {
+      background-image: url('bus2.jpg');
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-attachment: fixed;       
+  background-size: cover;
+      font-family: Arial;
+      text-align: center;
+    }
+
+    h2 {
+      color: black;
+    }
+
+    form {
+      background-color:rgba(10, 0, 0, 0.435);
+      padding: 20px;
+      display: inline-block;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px gray;
+      margin-top: 50px;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+    }
+
+    input[type="submit"] {
+      background-color:black ;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>User Login</h2>
+  <footer><h5 style="text-align:right;">
+    <a href="home.html">Home</a></h5>
+  </footer>
+
+  <form>
+    <input type="email" placeholder="Email"
+       pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+       title="Enter a valid email address (e.g., user@example.com)" required><br>
+    <input type="password" placeholder="Password"
+         pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+         title="Password must be at least 8 characters long, with at least one uppercase letter, one number, and one special character."
+         required><br>
+    <input type="submit" value="Login"><br>
+    <a href=" ">Forgot password?</a>
+  </form>
+  <br>
+  <br>
+  <a href="search.html">Search bus</a>
+
+
+</body>
+</html>
