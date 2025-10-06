@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
   <style>
     body {
       background-image: url('bus2.jpg');
-  background-repeat: no-repeat;
-  background-position: center center; 
-  background-attachment: fixed;       
-  background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center; 
+      background-attachment: fixed;       
+      background-size: cover;
       font-family: Arial, sans-serif;
       text-align: center;
+      margin: 0;
     }
 
     h2 {
@@ -34,6 +37,7 @@
       margin: 10px auto;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-family: Arial, sans-serif;
     }
 
     input[type="submit"] {
@@ -41,6 +45,32 @@
       color: white;
       border: none;
       cursor: pointer;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #333;
+    }
+
+    footer {
+      text-align: right;
+      margin: 15px 30px;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #successMessage {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
     }
 
   </style>
@@ -48,18 +78,49 @@
 <body>
 
   <h2>Contact Us</h2>
-  <footer><h5 style="text-align:right;">
-    <a href="home.html">Home</a></h5>
-  </footer>
 
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" 
+  <footer><h5><a href="home.html">Home</a></h5></footer>
+
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email"
            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-           title="Please enter valid email." required>
-    <textarea rows="" placeholder="Your Message" required></textarea>
+           title="Please enter a valid email." required>
+    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
     <input type="submit" value="Send Message">
   </form>
+
+  <div id="successMessage"></div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent page reload
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // Basic validation
+      if (name === '' || email === '' || message === '') {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      // Show success message
+      successMessage.textContent = "✅ Thank you, " + name + "! Your message has been sent successfully.";
+      
+      // Reset form
+      form.reset();
+
+      // Optionally, hide the message after few seconds
+      setTimeout(() => {
+        successMessage.textContent = '';
+      }, 5000);
+    });
+  </script>
 
 </body>
 </html>
