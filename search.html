@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bus Search</title>
   <style>
-    
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       text-align: center;
       background-image: url('bus2.jpg');
-  background-repeat: no-repeat;
-  background-position: center center; 
-  background-attachment: fixed;       
-  background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center; 
+      background-attachment: fixed;       
+      background-size: cover;
+      margin: 0;
+      padding: 0;
     }
 
     h2 {
       color: black;
+      margin-top: 40px;
     }
 
-    input {
+    form {
+      background-color: rgba(10, 0, 0, 0.5);
+      display: inline-block;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 2px 2px 10px gray;
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    input, select {
+      display: block;
+      width: 260px;
       padding: 10px;
-      margin: 10px;
+      margin: 10px auto;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
     }
 
     input[type="submit"] {
@@ -28,29 +51,115 @@
       color: white;
       border: none;
       cursor: pointer;
+      transition: 0.3s ease;
+      font-weight: bold;
     }
-    * {
-      box-sizing: border-box;
+
+    input[type="submit"]:hover {
+      background-color: #333;
+      transform: scale(1.05);
     }
-    </style>
+
+    a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      display: block;
+      margin-top: 10px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: right;
+      margin-right: 20px;
+    }
+
+    #results {
+      margin-top: 40px;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: inline-block;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px gray;
+      width: 80%;
+      max-width: 600px;
+      text-align: left;
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        width: 85%;
+      }
+
+      input {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <h2>Search for Buses</h2>
-  <footer><h5 style="text-align:right;">
-    <a href="home.html">Home</a></h5>
-  </footer>
+  <footer><h5><a href="home.html">Home</a></h5></footer>
 
-
-  <form>
-    <input type="text" placeholder="From"><br>
-    <input type="text" placeholder="To"><br>
-    <input type="date"><br>
+  <form onsubmit="return searchBus(event)">
+    <input type="text" id="from" placeholder="From" required><br>
+    <input type="text" id="to" placeholder="To" required><br>
+    <input type="date" id="date" required><br>
     <input type="submit" value="Search Bus"><br>
-    <a href="book.html">Book Your Ticket here.</a>
-    
+    <a href="book.html">Book Your Ticket here</a>
   </form>
 
+  <!-- Result Section -->
+  <div id="results">
+    <h3>Available Buses</h3>
+    <div id="busList"></div>
+  </div>
+
+  <script>
+    function searchBus(event) {
+      event.preventDefault();
+
+      const from = document.getElementById("from").value.trim();
+      const to = document.getElementById("to").value.trim();
+      const date = document.getElementById("date").value;
+
+      if (!from || !to || !date) {
+        alert("Please fill all fields before searching!");
+        return false;
+      }
+
+      // Example: Dummy bus data (replace with real backend later)
+      const buses = [
+        { name: "Express Line", time: "08:00 AM", price: 300 },
+        { name: "SuperFast Travels", time: "10:30 AM", price: 350 },
+        { name: "Comfort Bus", time: "02:00 PM", price: 400 },
+      ];
+
+      const resultDiv = document.getElementById("results");
+      const busList = document.getElementById("busList");
+
+      busList.innerHTML = ""; // Clear previous results
+      resultDiv.style.display = "block";
+
+      buses.forEach(bus => {
+        const busInfo = document.createElement("div");
+        busInfo.innerHTML = `
+          <p><strong>${bus.name}</strong><br>
+          Time: ${bus.time}<br>
+          Fare: ₹${bus.price}<br>
+          <a href="book.html">Book Now</a></p>
+          <hr>
+        `;
+        busList.appendChild(busInfo);
+      });
+    }
+  </script>
 
 </body>
 </html>
