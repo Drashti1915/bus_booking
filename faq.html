@@ -6,60 +6,100 @@
   <title>Bus Ticket Booking - FAQ</title>
   <style>
     body {
-     
-  background-image: url('bus2.jpg');
-  background-repeat: no-repeat;
-  background-position: center center; 
-  background-attachment: fixed;       
-  background-size: cover;             
+      background-image: url('bus2.jpg');
+      background-repeat: no-repeat;
+      background-position: center center; 
+      background-attachment: fixed;       
+      background-size: cover;             
       font-family: Arial, sans-serif;
-      margin: 3rem;
+      margin: 0;
+      padding: 0;
     }
 
     h2 {
       text-align: center;
-      color:black ;
+      color: black;
+      margin-top: 40px;
     }
 
     .faq-container {
       max-width: 700px;
-      margin: 0 auto;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
     details {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid #ddd;
       border-radius: 8px;
       padding: 1rem;
       margin-bottom: 1rem;
-      box-shadow: 0 2px 5px black
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    details:hover {
+      transform: translateY(-3px);
+      box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
     }
 
     summary {
       font-weight: bold;
       cursor: pointer;
       position: relative;
-    }
-
-    summary::marker {
-      font-size: 1.2rem;
-    }
-
-    details[open] summary::after {
-      content: "-";
-      position: absolute;
-      right: 0;
+      font-size: 1.1rem;
+      color: #000;
     }
 
     summary::after {
       content: "+";
       position: absolute;
       right: 0;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details p {
+      margin-top: 0.8rem;
+      color: #333;
+      line-height: 1.5;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      border: 1px solid black;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    a:hover {
+      background-color: black;
+      color: white;
     }
   </style>
 </head>
 <body>
+
   <h2>Frequently Asked Questions</h2>
+
   <div class="faq-container">
     <details>
       <summary>How do I book a bus ticket?</summary>
@@ -68,7 +108,7 @@
 
     <details>
       <summary>Can I cancel or modify my booking?</summary>
-      <p>Yes, cancellations and modifications are allowed up to 24 hours before departure. Fees may apply.</p>
+      <p>Yes, cancellations and modifications are allowed up to 24 hours before departure. A small processing fee may apply.</p>
     </details>
 
     <details>
@@ -78,8 +118,18 @@
 
     <details>
       <summary>Will I get a physical ticket?</summary>
-      <p>No, a digital ticket will be sent via email and SMS after successful booking.</p>
+      <p>No, a digital ticket will be sent via email and SMS after successful booking. You can also download it from the “Booking History” page.</p>
+    </details>
+
+    <details>
+      <summary>Is it safe to pay online?</summary>
+      <p>Yes. All transactions are secured with 128-bit SSL encryption to protect your payment details.</p>
     </details>
   </div>
+
+  <footer>
+    <a href="home.html">Back to Home</a>
+  </footer>
+
 </body>
 </html>
